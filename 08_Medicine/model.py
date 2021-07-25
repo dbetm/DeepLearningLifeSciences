@@ -23,7 +23,7 @@ class DRModel(dc.models.KerasModel):
 
   def __init__(self,
                n_tasks=1,
-               image_size=512,
+               image_dims=(512, 512, 3),
                n_downsample=6,
                n_init_kernel=16,
                n_fully_connected=[1024],
@@ -36,8 +36,8 @@ class DRModel(dc.models.KerasModel):
     ----------
     n_tasks: int
       Number of tasks
-    image_size: int
-      Resolution of the input images(square)
+    image_dims: tuple of int
+      Resolution of the input images
     n_downsample: int
       Downsample ratio in power of 2
     n_init_kernel: int
@@ -50,7 +50,7 @@ class DRModel(dc.models.KerasModel):
       If to use data augmentation
     """
     self.n_tasks = n_tasks
-    self.image_size = image_size
+    self.image_dims = image_dims
     self.n_downsample = n_downsample
     self.n_init_kernel = n_init_kernel
     self.n_fully_connected = n_fully_connected
@@ -59,12 +59,13 @@ class DRModel(dc.models.KerasModel):
 
     # inputs placeholder
     self.inputs = tf.keras.Input(
-        shape=(self.image_size, self.image_size, 3), dtype=tf.float32)
+        shape=self.image_dims, dtype=tf.float32)
+    # 
     # data preprocessing and augmentation
     in_layer = DRAugment(
         self.augment,
         batch_size,
-        size=(self.image_size, self.image_size))(self.inputs)
+        size=(self.image_dims[0], self.image_dims[1]))(self.inputs)
     # first conv layer
     in_layer = layers.Conv2D(int(self.n_init_kernel), kernel_size=7, padding='same')(in_layer)
     in_layer = layers.BatchNormalization()(in_layer)
