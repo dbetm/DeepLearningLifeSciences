@@ -24,6 +24,9 @@ Using DeepChem with TensorFlow 2.x + Keras or PyTorch 🔥, projects and exercis
 | 10 - Interpretation|  |   -    |    -    |
 | 11 - Virtual Screening|  |   -    |    -    |
 
-**Note**: On the Jupyter Notebooks the models don't save after/during the training.
+**Notes**: 
+1. On the Jupyter Notebooks the models don't save after/during the training.
 You must set `model_dir` and call `model.restore()` for use trained models, you
 can read more [here](https://deepchem.readthedocs.io/en/latest/api_reference/models.html#keras-models).
+2. If you wish to run the models to train, please enable GPU on Colab (Runtime > Change runtime type > Hardware accelerator -> GPU).
+3. The projects are demonstratives, you shouldn't use them in a real life application, but you can have like reference to create robust models to research, exploration and more.
