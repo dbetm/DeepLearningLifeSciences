@@ -22,7 +22,7 @@ Using DeepChem with TensorFlow 2.x + Keras or PyTorch 🔥, projects and exercis
 | 8 - Medicine         | [Predict diabetic retinopathy progression](08_Medicine/Diagnose_Diabetic_Retinopathy_Progression.ipynb)  |   ✔️    |    ✖️    |
 | 9 - Generative models| [Generate molecules using MUV dataset](09_GenerativeModels/Generating_molecules_with_VAE.ipynb) |   ✔️    |    ✖️    |
 | 10 - Interpretation|  |   -    |    -    |
-| 11 - Virtual Screening|  |   -    |    -    |
+| 11 - Virtual Screening|  |    ✔️     |    -    |
 
 **Notes**: 
 1. On the Jupyter Notebooks the models don't save after/during the training.
